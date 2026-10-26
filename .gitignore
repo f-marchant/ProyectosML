@@ -2,24 +2,43 @@
 # .gitignore para proyectosML (Línea Base ICM / Data Science / ML / Agéntico)
 # ==============================================================================
 
-# Entornos virtuales de Python
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[codz]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Entornos virtuales
 .venv/
 venv/
 env/
 ENV/
 env.bak/
 venv.bak/
-
-# Bytecode y caché de Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.pytest_cache/
-.coverage
-htmlcov/
-.mypy_cache/
-.ruff_cache/
+.pdm-python
+.pdm-build/
+.pixi/*
+!.pixi/config.toml
 
 # Archivos de entorno y credenciales (Seguridad)
 .env
@@ -29,6 +48,23 @@ htmlcov/
 *.key
 credentials.json
 token.json
+.streamlit/secrets.toml
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py.cover
+.hypothesis/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
 # Jupyter Notebooks
 .ipynb_checkpoints/
@@ -78,7 +114,7 @@ logs/*.log
 **/logs/traces/*
 !**/logs/traces/.gitkeep
 
-# Configuración de Editores y SO
+# Editores y SO
 .DS_Store
 Thumbs.db
 .idea/
@@ -87,3 +123,4 @@ Thumbs.db
 !.vscode/extensions.json
 *.swp
 *~
+tempCodeRunnerFile.py
