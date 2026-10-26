@@ -1,0 +1,89 @@
+# ==============================================================================
+# .gitignore para proyectosML (Línea Base ICM / Data Science / ML / Agéntico)
+# ==============================================================================
+
+# Entornos virtuales de Python
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Bytecode y caché de Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Archivos de entorno y credenciales (Seguridad)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+token.json
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*-checkpoint.ipynb
+
+# Datasets y Datos Pesados (Gestión por Capas)
+# Permite que la estructura de carpetas persista mediante .gitkeep
+**/data/raw/*
+!**/data/raw/.gitkeep
+**/data/interim/*
+!**/data/interim/.gitkeep
+**/data/processed/*
+!**/data/processed/.gitkeep
+**/data/external/*
+!**/data/external/.gitkeep
+**/data/sample/*
+!**/data/sample/.gitkeep
+
+# Extensiones de datos pesados
+*.csv
+*.tsv
+*.parquet
+*.feather
+*.h5
+*.hdf5
+*.nc
+*.arrow
+*.tar.gz
+*.zip
+
+# Modelos binarios y pesos entrenados
+**/models/*.pkl
+**/models/*.pickle
+**/models/*.joblib
+**/models/*.pt
+**/models/*.pth
+**/models/*.bin
+**/models/*.h5
+**/models/*.onnx
+**/models/*.weights
+**/models/registry/*
+!**/models/registry/.gitkeep
+
+# Observabilidad, Trazas y Logs
+logs/*.log
+*.log
+**/logs/traces/*
+!**/logs/traces/.gitkeep
+
+# Configuración de Editores y SO
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+*.swp
+*~
