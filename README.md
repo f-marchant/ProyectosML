@@ -116,17 +116,6 @@ En cada proyecto de Ciencia de Datos (`--type ds`), la carpeta `research/` propo
 - `notes/hypothesis_log.md`: Bitácora de pensamiento y validación de hipótesis (asistidas por IA o manuales).
 - `references/`: Bibliografía y enlaces a fuentes formales.
 
----
-
-## 🛡️ Principios Inviolables de Git Hygiene
-
-Este repositorio está configurado para **proteger tus datos y modelos**:
-- Datasets pesados (`*.csv`, `*.parquet`, `data/raw/*`) y pesos entrenados (`*.pkl`, `*.pt`, `*.onnx`) están **excluidos del control de versiones**.
-- Las credenciales (`.env`, `credentials.json`) nunca se subirán a GitHub.
-- El repositorio en GitHub preserva la **arquitectura, código, contratos de contexto y documentación**, manteniéndose ligero y seguro.
-
----
-
 ## 🤝 Autor y Licencia
 
 - **Autor**: [Felipe Marchant](https://github.com/f-marchant)
