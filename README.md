@@ -183,8 +183,6 @@ Este repositorio implementa y extiende conceptos fundamentales de la literatura 
   - *Skill integrada*: Diseñador y auditor de workspaces en los 6 arquetipos formales.
 - **[Cookiecutter Data Science](https://github.com/drivendata/cookiecutter-data-science)** por DrivenData (Licencia BSD-3-Clause).
   - *Estructura modular de datos por capas (`data/raw`, `data/interim`, `data/processed`)*.
-- **[Agent Skills for Context Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering)** por Muratcan Koylan (Licencia MIT).
-  - *Base del subproyecto `AgentContextEng`*.
 
 ---
 
