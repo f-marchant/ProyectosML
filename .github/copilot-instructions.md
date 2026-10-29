@@ -1,9 +1,6 @@
-# GitHub Copilot Custom Instructions — proyectosML
+# GitHub Copilot Instructions — proyectosML
+<!-- Generated automatically by sync-adapters.sh from AGENTS.md -->
 
-This workspace operates under the **Interpretable Context Methodology (ICM)**.
-
-## Instructions for Copilot:
-1. Refer to `AGENTS.md` for coding conventions, random seeds (`seed=42`), data leakage prevention, and clean code philosophy.
-2. Refer to `CONTEXT.md` for project architecture and routing.
-3. For individual projects located in `projects/`, always honor the stage contracts defined in their local `CONTEXT.md` and their domain rules in `_context/`.
-4. Never generate or commit hardcoded secrets, large dummy data in code, or unneeded dependencies.
+- Authoritative source: refer to AGENTS.md for development standards and CONTEXT.md for stage contracts.
+- In data science workflows, ensure scalers and encoders are fitted only on training data.
+- Reproducibility: enforce random_state=42 across all ML pipelines.

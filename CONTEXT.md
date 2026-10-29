@@ -1,21 +1,17 @@
-# CONTEXT.md — Catálogo de Proyectos Privados: workspace_proyectos
+# CONTEXT.md — Catálogo de Proyectos y Enrutador Umbrella
 
-Este archivo mantiene el índice de proyectos personales y laborales confidenciales creados dentro de `projects/`.
+Este archivo mantiene el índice de todos los proyectos creados dentro de `projects/` o en la raíz del espacio de trabajo.
 
 ---
 
-## 1. Estructura del Espacio
+## 1. Estructura General del Espacio de Trabajo
 
-| Componente | Rol en ICM | Descripción |
+| Componente | Rol en la Metodología ICM | Descripción |
 | :--- | :--- | :--- |
-| `AGENTS.md` | Layer 0 (Umbrella) | Directrices globales y confidencialidad |
-| `CONTEXT.md` | Layer 1 (Router) | Catálogo de proyectos activos |
-| `_baseline/` | Layer 3 (La Fábrica) | Plantillas y skills de andamiaje |
-| `projects/` | Layer 4 (Los Productos) | Espacio donde viven tus desarrollos |
+| `AGENTS.md` | Layer 0 (Umbrella) | Identidad del repositorio y directrices globales |
+| `CONTEXT.md` | Layer 1 (Router) | Catálogo e índice de proyectos activos |
+| `_baseline/` | Layer 3 (La Fábrica) | Reglas globales, skills (`icm-architect`, `project-scaffold`) y plantillas |
+| `projects/` | Layer 4 (Los Productos) | Espacio donde viven los proyectos individuales |
 
 ---
 
-## 2. Catálogo de Proyectos Activos
-
-| Nombre del Proyecto | Tipo | Ubicación | Descripción |
-| :--- | :--- | :--- | :--- |

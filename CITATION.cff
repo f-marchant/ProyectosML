@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this methodology, workspace template, or scaffolding tools in your work, please cite it as below."
+authors:
+  - family-names: "Marchant"
+    given-names: "Felipe"
+title: "proyectosML: A Universal Agentic Baseline & Workspace Architecture for Data Science, Machine Learning, and AI Engineering"
+version: 1.0.0
+date-released: 2026-10-28
+url: "https://github.com/f-marchant/proyectosML"
+keywords:
+  - interpretable-context-methodology
+  - context-engineering
+  - data-science
+  - machine-learning
+  - ai-agents
+  - antigravity
+  - claude-code
+  - cursor
+  - windsurf
+  - mlops
+license: MIT
