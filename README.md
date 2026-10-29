@@ -130,4 +130,5 @@ Este repositorio está configurado para **proteger tus datos y modelos**:
 ## 🤝 Autor y Licencia
 
 - **Autor**: [Felipe Marchant](https://github.com/f-marchant)
+- **Linkedin**: [felipemarchant](linkedin.com/in/felipemarchant)
 - **Licencia**: MIT
