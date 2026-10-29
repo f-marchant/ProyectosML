@@ -44,6 +44,11 @@ ln -sf "${BASE_DIR}/_baseline/skills/project-scaffold" "${CLAUDE_SKILLS_DIR}/pro
 # 3. Asegurar permisos ejecutables en scripts
 chmod +x "${BASE_DIR}/init-project.sh"
 chmod +x "${BASE_DIR}/bootstrap.sh"
+if [[ -f "${BASE_DIR}/sync-adapters.sh" ]]; then
+    chmod +x "${BASE_DIR}/sync-adapters.sh"
+    echo "🔄 Sincronizando adaptadores de asistentes en la raíz..."
+    bash "${BASE_DIR}/sync-adapters.sh" "${BASE_DIR}"
+fi
 
 # 4. Comprobar herramientas instaladas en el sistema
 echo ""
@@ -56,15 +61,18 @@ command -v cursor >/dev/null 2>&1 && echo "  ✅ cursor: detectado" || echo "  �
 
 echo ""
 echo "=================================================================="
-echo "🎉 ¡Línea base universal de proyectosML instalada con éxito!"
+echo "🎉 ¡Configuración de entorno proyectosML completada con éxito!"
 echo "=================================================================="
-echo "Herramientas de IA configuradas con la misma línea base:"
-echo "  • Google Antigravity : ~/.gemini/config/GEMINI.md + skills globales"
-echo "  • Claude Code (CLI)  : ~/.claude/skills/ + CLAUDE.md"
-echo "  • Cursor IDE         : .cursorrules en cada proyecto"
-echo "  • Windsurf / Cascade : .windsurfrules en cada proyecto"
-echo "  • GitHub Copilot     : .github/copilot-instructions.md en cada proyecto"
+echo "Alcance de la configuración:"
+echo "  • Nivel Sistema / CLI:"
+echo "    - Google Antigravity : ~/.gemini/config/GEMINI.md + skills globales"
+echo "    - Claude Code (CLI)  : ~/.claude/skills/ (icm-architect, project-scaffold)"
+echo "  • Nivel Workspace / Proyecto (vía sync-adapters.sh):"
+echo "    - Cursor IDE         : .cursor/rules/main.mdc y .cursorrules"
+echo "    - Windsurf / Cascade : .windsurfrules"
+echo "    - GitHub Copilot     : .github/copilot-instructions.md"
+echo "    - Claude Code        : CLAUDE.md"
 echo ""
-echo "Para crear un nuevo proyecto compatible con cualquier IA ejecuta:"
+echo "Para crear un nuevo proyecto estandarizado ejecuta:"
 echo "  cd ${BASE_DIR} && ./init-project.sh <nombre> --type <ds|ml|agentic>"
 echo "=================================================================="

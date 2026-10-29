@@ -14,3 +14,4 @@ Este archivo mantiene el índice de todos los proyectos creados dentro de `proje
 | `projects/` | Layer 4 (Los Productos) | Espacio donde viven los proyectos individuales |
 
 ---
+

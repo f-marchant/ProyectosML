@@ -116,7 +116,13 @@ find "${TARGET_DIR}" -type f \( -name "*.md" -o -name ".cursorrules" -o -name ".
 find "${TARGET_DIR}" -type f \( -name "*.md" -o -name ".cursorrules" -o -name ".windsurfrules" \) -exec "${SED_INPLACE[@]}" "s/{{PROJECT_DESCRIPTION}}/${PROJECT_DESC}/g" {} +
 find "${TARGET_DIR}" -type f \( -name "*.md" -o -name ".cursorrules" -o -name ".windsurfrules" \) -exec "${SED_INPLACE[@]}" "s/{{CREATION_DATE}}/${CREATION_DATE}/g" {} +
 
-# 3. Registrar el proyecto en el catálogo raíz (CONTEXT.md)
+# 3. Sincronizar adaptadores universales (Single Source of Truth)
+if [[ -f "${BASE_DIR}/sync-adapters.sh" ]]; then
+    bash "${BASE_DIR}/sync-adapters.sh" "${TARGET_DIR}" >/dev/null 2>&1 || true
+fi
+chmod +x "${TARGET_DIR}/scripts/"*.py 2>/dev/null || true
+
+# 4. Registrar el proyecto en el catálogo raíz (CONTEXT.md)
 if [[ -f "${ROOT_CONTEXT}" ]]; then
     if ! grep -q "projects/${PROJECT_NAME}" "${ROOT_CONTEXT}"; then
         echo "| \`${PROJECT_NAME}\` | ${TYPE_LABEL} | \`projects/${PROJECT_NAME}/\` | ${PROJECT_DESC} |" >> "${ROOT_CONTEXT}"

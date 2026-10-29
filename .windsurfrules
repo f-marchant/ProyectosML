@@ -1,9 +1,6 @@
 # Windsurf Rules — proyectosML
+# Generated automatically by sync-adapters.sh from AGENTS.md
 
-You are Cascade, working in an ICM (Interpretable Context Methodology) workspace.
-
-## Core Directives:
-1. Review `AGENTS.md` for engineering principles and `CONTEXT.md` for active project routing.
-2. Maintain context discipline: never inspect large data files or compiled binaries.
-3. When addressing tasks in any project inside `projects/`, inspect its local `CONTEXT.md` stage contracts and `_context/` files first.
-4. Uphold Senior Dev / YAGNI principles: avoid unnecessary abstractions and unrequested dependencies.
+1. Read AGENTS.md for engineering rules and CONTEXT.md for task contracts.
+2. Maintain context discipline: read _context/ and research/ instead of scanning massive raw data.
+3. Respect data immutability in data/raw/.

@@ -2,46 +2,46 @@
 
 [![Licencia: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Metodología: ICM](https://img.shields.io/badge/Methodology-ICM-blue.svg)](https://github.com/RinDig/Interpretable-Context-Methodology)
-[![Compatibilidad: Universal AI](https://img.shields.io/badge/AI_Tools-Antigravity_%7C_Claude_Code_%7C_Cursor_%7C_Windsurf_%7C_Copilot-purple.svg)](#-compatibilidad-universal-con-herramientas-de-ia)
+[![Compatibilidad: Universal AI](https://img.shields.io/badge/AI_Tools-Antigravity_%7C_Claude_Code_%7C_Cursor_%7C_Windsurf_%7C_Copilot-purple.svg)](#-compatibilidad-con-herramientas-de-ia)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-**proyectosML** es un marco de trabajo de código abierto (*open-source framework*) que implementa el patrón **Umbrella** de la metodología **ICM (Interpretable Context Methodology)** para estructurar, estandarizar y gobernar proyectos de **Ciencia de Datos**, **Machine Learning Productivo** y **Desarrollo Agéntico**, haciéndolos **compatibles de forma nativa con cualquier asistente de programación con IA** (*Google Antigravity, Claude Code, Cursor, Windsurf, GitHub Copilot, Aider, etc.*).
+**proyectosML** es un marco de trabajo de código abierto (*open-source framework*) que implementa el patrón **Umbrella** de la metodología **ICM (Interpretable Context Methodology)** para estructurar, estandarizar y gobernar proyectos de **Ciencia de Datos**, **Machine Learning Productivo** y **Desarrollo Agéntico**. Está diseñado para operar de forma consistente con los principales asistentes de programación con IA (*Google Antigravity, Claude Code, Cursor, Windsurf, GitHub Copilot, Aider*), mediante adaptadores generados a partir de una única fuente de verdad canónica (`AGENTS.md`).
 
 ---
 
 ## 🎯 ¿Por qué nace este proyecto? (El Problema Real)
 
-Desarrollar soluciones de Machine Learning o Ciencia de Datos con asistentes de IA actuales suele toparse con 5 cuellos de botella críticos:
+Desarrollar soluciones de Machine Learning o Ciencia de Datos asistidas por agentes LLM enfrenta cinco cuellos de botella críticos:
 
-1. **Context Rot (Degradación de Contexto)**: Los proyectos de datos acumulan CSVs pesados, notebooks gigantescos con gráficos en base64 y código desordenado. Cuando el agente lee decenas de miles de tokens, empieza a alucinar y olvidar directrices clave.
-2. **Data Leakage (Fuga de Datos)**: Los LLMs frecuentemente ajustan transformaciones sobre el dataset completo o ignoran la temporalidad en series de tiempo al no tener barreras físicas en el sistema de archivos.
-3. **Pérdida del Sustento Teórico**: Las decisiones matemáticas, funciones de pérdida y formulaciones se discuten en el chat de la IA y se pierden, dejando el código huérfano de justificación científica.
-4. **Fricción Multi-Herramienta**: Cada herramienta de IA exige su propio archivo de configuración (`CLAUDE.md`, `.cursorrules`, `AGENTS.md`, `copilot-instructions.md`), provocando fragmentación y duplicidad.
-5. **Notebook Spaghetti**: Flujos exploratorios que dependen del estado en memoria RAM del kernel y resultan imposibles de reproducir semanas después.
+1. **Context Rot (Degradación de Contexto)**: Los proyectos de datos acumulan CSVs masivos, notebooks con gráficos en base64 y código exploratorio redundante. Cuando el agente ingiere decenas de miles de tokens, incrementa el riesgo de alucinación y dilución de directrices.
+2. **Data Leakage (Fuga de Datos)**: Sin barreras explícitas en el sistema de archivos y validaciones automatizadas, los asistentes suelen ajustar transformaciones (`fit`) sobre el dataset completo o ignorar el orden temporal en series de tiempo.
+3. **Pérdida del Sustento Teórico**: Las formulaciones matemáticas, funciones de pérdida y justificaciones de arquitectura quedan dispersas en el historial efímero del chat, desvinculadas del código final.
+4. **Fricción Multi-Herramienta**: Cada entorno exige formatos propietarios de configuración (`CLAUDE.md`, `.cursorrules`, `.cursor/rules/*.mdc`, `.windsurfrules`, `.github/copilot-instructions.md`), generando duplicidad y reglas desincronizadas.
+5. **Notebook Spaghetti y Falta de Reproducibilidad**: Flujos interactivos que dependen del estado en memoria del kernel, difíciles de auditar o trasladar a pipelines de producción.
 
 ---
 
 ## 💡 Los 4 Pilares de la Solución
 
-1. **La Estructura de Carpetas como Arquitectura (ICM)**: En lugar de frameworks pesados, el sistema de archivos orquesta al modelo mediante contratos de etapa explícitos (`CONTEXT.md`) y una disciplina estricta de **2.000 a 8.000 tokens por interacción**.
-2. **Single Source of Truth + Adaptadores Universales**: Un único archivo de reglas canónicas (`AGENTS.md`) respaldado por adaptadores automáticos para Claude Code, Cursor, Windsurf y Copilot.
-3. **Anclaje Teórico (`research/`)**: Una carpeta formal de primer nivel para alojar la formulación matemática en LaTeX, estado del arte, justificación metodológica y bitácora de hipótesis.
-4. **Inmutabilidad y Gestión de Datos por Capas**: Datos crudos (`data/raw/`) estrictamente de solo lectura, procesados en capas (`interim/`, `processed/`) y protegidos en Git mediante `.gitignore` calibrado.
+1. **La Estructura de Carpetas como Arquitectura (ICM)**: En lugar de orquestadores complejos, el sistema de archivos guía al modelo mediante contratos de etapa explícitos (`CONTEXT.md`) y una disciplina estricta de presupuesto de contexto (**2.000 a 8.000 tokens por interacción**).
+2. **Single Source of Truth (`AGENTS.md`) + Adaptadores Sincronizados**: Las reglas maestras residen en un único archivo canónico (`AGENTS.md`). El script `./sync-adapters.sh` propaga automáticamente estas directrices hacia Claude Code, Cursor (soporte moderno `.mdc` y clásico `.cursorrules`), Windsurf y Copilot.
+3. **Anclaje Teórico (`research/`)**: Un módulo formal de primer nivel para alojar formulaciones matemáticas en KaTeX ($\mathcal{X} \to \mathcal{Y}$), comparativas del estado del arte, justificación metodológica y bitácora de hipótesis (`hypothesis_log.md`).
+4. **Convención de Inmutabilidad y Datos por Capas**: Establece `data/raw/` como capa de solo lectura por convención metodológica, promoviendo el flujo unidireccional hacia `interim/` y `processed/`, complementado con tests unitarios automatizados y protección de artefactos pesados en `.gitignore`.
 
 ---
 
-## 🤖 Compatibilidad Universal con Herramientas de IA
+## 🤖 Compatibilidad con Herramientas de IA
 
-Cualquier proyecto creado dentro de `proyectosML` se adapta automáticamente a tu entorno de trabajo favorito:
+Los proyectos creados bajo `proyectosML` se integran con diversos entornos mediante adaptadores sincronizados:
 
-| Asistente / Herramienta | Archivo de Configuración | Cómo Opera |
-| :--- | :--- | :--- |
-| **Google Antigravity** | `AGENTS.md` + `~/.gemini/config/GEMINI.md` | Carga las reglas universales, disciplina de tokens y ejecuta las skills globales. |
-| **Claude Code (CLI)** | `CLAUDE.md` + `~/.claude/skills/` | Enrutamiento en raíz y acceso directo a las skills globales (`icm-architect`, `project-scaffold`). |
-| **Cursor IDE** | `.cursorrules` (en raíz y en cada proyecto) | Aplica las restricciones de datos inmutables y contratos en cada interacción de chat o *Composer*. |
-| **Windsurf / Cascade** | `.windsurfrules` (en raíz y en cada proyecto) | Dirige al motor Cascade a respetar la inmutabilidad y los contratos ICM. |
-| **GitHub Copilot** | `.github/copilot-instructions.md` | Instrucciones automáticas para Copilot Chat en VS Code, JetBrains o GitHub.com. |
-| **Aider / Codex / Open Source** | `AGENTS.md` + `CONTEXT.md` | Estándar abierto de agentes CLI. |
+| Asistente / Herramienta | Archivo(s) de Configuración | Nivel de Soporte | Cómo Opera |
+| :--- | :--- | :---: | :--- |
+| **Google Antigravity** | `AGENTS.md` + `~/.gemini/config/GEMINI.md` | **Nativo / Global** | Carga reglas globales, disciplina de tokens y ejecuta skills del sistema (`icm-architect`, `project-scaffold`). |
+| **Claude Code (CLI)** | `CLAUDE.md` + `~/.claude/skills/` | **Adaptador Sincronizado** | Enrutamiento optimizado para CLI y acceso a skills globales del usuario. |
+| **Cursor IDE** | `.cursor/rules/main.mdc` y `.cursorrules` | **Adaptador Sincronizado** | Compatible con el formato moderno de reglas `.mdc` y retrocompatible con `.cursorrules`. |
+| **Windsurf / Cascade** | `.windsurfrules` | **Adaptador Sincronizado** | Instruye al motor Cascade para respetar contratos ICM e inmutabilidad de datos. |
+| **GitHub Copilot** | `.github/copilot-instructions.md` | **Adaptador Sincronizado** | Provee contexto a Copilot Chat en VS Code, JetBrains y GitHub.com. |
+| **Aider / Agentes CLI** | `AGENTS.md` + `CONTEXT.md` | **Estándar Abierto** | Lee especificaciones markdown estándar directamente desde el workspace. |
 
 ---
 
@@ -49,27 +49,60 @@ Cualquier proyecto creado dentro de `proyectosML` se adapta automáticamente a t
 
 ### 1. Clonar el Repositorio
 ```bash
-git clone https://github.com/f-marchant/proyectosML.git
-cd proyectosML
+git clone https://github.com/f-marchant/ProyectosML.git
+cd ProyectosML
 ```
 
-### 2. Ejecutar el Instalador Universal (`bootstrap.sh`)
+### 2. Configurar el Entorno Global y Permisos (`bootstrap.sh`)
 ```bash
-chmod +x bootstrap.sh
+chmod +x bootstrap.sh init-project.sh sync-adapters.sh
 ./bootstrap.sh
 ```
-*Este comando vincula automáticamente las reglas y las skills globales tanto a Google Antigravity como a Claude Code.*
+> [!NOTE]
+> **Alcance de `bootstrap.sh`**: Configura a nivel de sistema los enlaces simbólicos de reglas y skills para **Google Antigravity** (`~/.gemini/`) y **Claude Code CLI** (`~/.claude/`). Adicionalmente, ejecuta `sync-adapters.sh` para asegurar que los adaptadores de Cursor, Windsurf y Copilot estén sincronizados en la raíz del repositorio.
 
-### 3. Crear tu Primer Proyecto Estandarizado
+### 3. Crear tu Primer Proyecto Estandarizado (`init-project.sh`)
 ```bash
-# 🔬 Para Ciencia de Datos (con research/ y capas de datos):
+# Para Ciencia de Datos (con research/, capas de datos y validadores):
 ./init-project.sh scoring-crediticio --type ds "Modelo de riesgo con LightGBM"
 
-# ⚙️ Para Machine Learning Productivo (API FastAPI + Docker):
+# Para Machine Learning Productivo (API FastAPI + Docker + Pipeline):
 ./init-project.sh api-deteccion --type ml "Microservicio de inferencia en tiempo real"
 
-# 🤖 Para Desarrollo Agéntico (Prompts + Tools + Evals):
+# Para Desarrollo Agéntico (Prompts + Tools + Evals + Grafos):
 ./init-project.sh analista-autonomo --type agentic "Agente con herramientas de búsqueda y RAG"
+```
+
+### 4. Sincronizar Reglas entre Asistentes (`sync-adapters.sh`)
+Si realizas ajustes en las directrices de `AGENTS.md`, propágalos a todos los adaptadores ejecutando:
+```bash
+# Sincronizar la raíz del workspace:
+./sync-adapters.sh
+
+# O sincronizar un proyecto específico:
+./sync-adapters.sh projects/scoring-crediticio
+```
+
+---
+
+## 🧪 Suite de Validación y Pruebas Unitarias
+
+Cada proyecto incluye herramientas de verificación técnica para asegurar buenas prácticas de ingeniería:
+
+1. **`tests/test_data_leakage.py`**:
+   Verifica que los pipelines de preprocesamiento ajusten sus transformaciones (`fit`) exclusivamente sobre los datos de entrenamiento y no filtren estadísticas del conjunto de validación o test.
+2. **`tests/test_git_hygiene.py`**:
+   Inspecciona el árbol git local y previene que se comiteen archivos binarios pesados (`.pkl`, `.joblib`, `.pt`), datasets masivos o artefactos que degraden el repositorio.
+3. **`scripts/check_context_budget.py`**:
+   Script CLI que calcula el consumo estimado de tokens en los archivos de directrices y contratos (`AGENTS.md`, `CLAUDE.md`, `CONTEXT.md`), alertando si se excede el presupuesto objetivo de 2.000 a 8.000 tokens de la metodología ICM.
+
+Para ejecutar los tests de un proyecto:
+```bash
+# Ejecutar suite de pruebas unitarias:
+pytest projects/scoring-crediticio/tests/
+
+# Auditar presupuesto de tokens de contexto:
+python3 projects/scoring-crediticio/scripts/check_context_budget.py
 ```
 
 ---
@@ -98,7 +131,9 @@ projects/mi-analisis/               projects/mi-servicio-ml/           projects/
 ├── data/ (raw, interim, processed) │
 ├── notebooks/ (01_eda a 04_eval)   ├── tests/ (unit e integration)
 ├── src/ (data, features, models)   ├── Dockerfile
-└── reports/ (summary.md)           └── deployment/
+├── tests/ (data leakage e higiene) └── deployment/
+├── scripts/ (check context budget)
+└── reports/ (summary.md)
 ```
 
 ---
@@ -120,18 +155,18 @@ Si utilizas este espacio de trabajo, sus plantillas o su metodología en tu inve
 
 ### Formato BibTeX:
 ```bibtex
-@software{marchant2026proyectosml,
+@misc{marchant2026proyectosml,
   author       = {Marchant, Felipe},
-  title        = {proyectosML: A Universal Agentic Baseline & Workspace Architecture for Data Science, Machine Learning, and AI Engineering},
+  title        = {proyectosML: A Universal Agentic Baseline \& Workspace Architecture for Data Science, Machine Learning, and AI Engineering},
   year         = {2026},
   publisher    = {GitHub},
-  journal      = {GitHub repository},
-  howpublished = {\url{https://github.com/f-marchant/proyectosML}}
+  howpublished = {\url{https://github.com/f-marchant/ProyectosML}},
+  note         = {GitHub repository}
 }
 ```
 
 ### Formato APA (7.ª edición):
-> Marchant, F. (2026). *proyectosML: A Universal Agentic Baseline & Workspace Architecture for Data Science, Machine Learning, and AI Engineering* [Computer software]. GitHub. https://github.com/f-marchant/proyectosML
+> Marchant, F. (2026). *proyectosML: A Universal Agentic Baseline & Workspace Architecture for Data Science, Machine Learning, and AI Engineering* [Computer software]. GitHub. https://github.com/f-marchant/ProyectosML
 
 ---
 
