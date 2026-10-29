@@ -1,0 +1,16 @@
+{
+  "ds-quality-gate": {
+    "PostToolUse": [
+      {
+        "matcher": "write_to_file|replace_file_content",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "git diff --name-only | grep -E '\\.py$' | xargs -r ruff format 2>/dev/null || true",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  }
+}

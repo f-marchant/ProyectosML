@@ -1,0 +1,126 @@
+# ==============================================================================
+# .gitignore para proyectosML (Línea Base ICM / Data Science / ML / Agéntico)
+# ==============================================================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[codz]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.pdm-python
+.pdm-build/
+.pixi/*
+!.pixi/config.toml
+
+# Archivos de entorno y credenciales (Seguridad)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+token.json
+.streamlit/secrets.toml
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py.cover
+.hypothesis/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*-checkpoint.ipynb
+
+# Datasets y Datos Pesados (Gestión por Capas)
+# Permite que la estructura de carpetas persista mediante .gitkeep
+**/data/raw/*
+!**/data/raw/.gitkeep
+**/data/interim/*
+!**/data/interim/.gitkeep
+**/data/processed/*
+!**/data/processed/.gitkeep
+**/data/external/*
+!**/data/external/.gitkeep
+**/data/sample/*
+!**/data/sample/.gitkeep
+
+# Extensiones de datos pesados
+*.csv
+*.tsv
+*.parquet
+*.feather
+*.h5
+*.hdf5
+*.nc
+*.arrow
+*.tar.gz
+*.zip
+
+# Modelos binarios y pesos entrenados
+**/models/*.pkl
+**/models/*.pickle
+**/models/*.joblib
+**/models/*.pt
+**/models/*.pth
+**/models/*.bin
+**/models/*.h5
+**/models/*.onnx
+**/models/*.weights
+**/models/registry/*
+!**/models/registry/.gitkeep
+
+# Observabilidad, Trazas y Logs
+logs/*.log
+*.log
+**/logs/traces/*
+!**/logs/traces/.gitkeep
+
+# Editores y SO
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+*.swp
+*~
+tempCodeRunnerFile.py

@@ -1,0 +1,7 @@
+# Cursor Rules — {{PROJECT_NAME}} (Data Science)
+
+1. Read `AGENTS.md` and `CONTEXT.md` before making any modifications.
+2. Invariance: data in `data/raw/` is immutable and read-only.
+3. Theoretical grounding: check `research/01_problem_formulation.md` for equations and loss functions.
+4. Prevent data leakage: fits must strictly occur on the training set.
+5. All random states must use `seed=42`.

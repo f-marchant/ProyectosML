@@ -1,0 +1,6 @@
+# Windsurf Rules — {{PROJECT_NAME}} (Data Science)
+
+1. Adhere to `AGENTS.md` and the stage contracts in `CONTEXT.md`.
+2. Do not modify or overwrite data in `data/raw/`.
+3. Check `_context/domain.md` for feature definitions instead of reading entire dataset files.
+4. Ensure cross-validation follows `_context/conventions.md`.

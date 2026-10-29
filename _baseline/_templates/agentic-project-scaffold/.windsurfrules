@@ -1,0 +1,5 @@
+# Windsurf Rules — {{PROJECT_NAME}} (Desarrollo Agéntico)
+
+1. Adhere to `AGENTS.md` and safety rules in `_context/safety_guardrails.md`.
+2. Keep agent orchestration modular in `src/agent.py` and tools under `tools/`.
+3. Verify task success with `evals/`.

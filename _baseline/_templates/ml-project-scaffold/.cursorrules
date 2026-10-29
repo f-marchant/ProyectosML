@@ -1,0 +1,6 @@
+# Cursor Rules — {{PROJECT_NAME}} (ML Productivo)
+
+1. Adhere to `AGENTS.md` and `_context/api_specs.md`.
+2. All API endpoints must use Pydantic models for request/response validation.
+3. No notebooks allowed in `src/`. Keep production code fully modular and test-covered.
+4. Verify that tests pass with `pytest tests/` before considering any task complete.
