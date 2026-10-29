@@ -132,3 +132,15 @@ Este repositorio está configurado para **proteger tus datos y modelos**:
 - **Autor**: [Felipe Marchant](https://github.com/f-marchant)
 - **Linkedin**: [felipemarchant](linkedin.com/in/felipemarchant)
 - **Licencia**: MIT
+
+
+## 📚 Reconocimientos y Fuentes
+
+Este repositorio implementa y extiende las siguientes metodologías y herramientas de código abierto:
+
+- **[Interpretable Context Methodology (ICM)](https://github.com/RinDig/Interpretable-Context-Methodology)** por RinDig (Licencia MIT).
+  - *Base conceptual*: Sustitución de orquestadores complejos por estructura de sistema de archivos, contratos de etapa y disciplina de tokens.
+- **[icm-architect](https://github.com/RinDig/icm-architect)** por RinDig (Licencia MIT).
+  - *Skill integrada*: Diseñador y auditor de workspaces en los 6 arquetipos formales.
+- **[Cookiecutter Data Science](https://github.com/drivendata/cookiecutter-data-science)** por DrivenData (Licencia BSD-3-Clause).
+  - *Estructura modular de datos por capas (`data/raw`, `data/interim`, `data/processed`)*.
