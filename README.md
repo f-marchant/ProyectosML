@@ -1,17 +1,32 @@
-# proyectosML — Línea Base y Espacio de Trabajo con ICM para Antigravity
+# proyectosML — Línea Base Universal y Espacio Umbrella con ICM
 
 [![Metodología: ICM](https://img.shields.io/badge/Methodology-ICM-blue.svg)](https://github.com/RinDig/Interpretable-Context-Methodology)
-[![AI Assistant: Antigravity](https://img.shields.io/badge/Agent-Google_Antigravity-orange.svg)](https://antigravity.google)
+[![Compatibilidad: Universal AI](https://img.shields.io/badge/AI_Tools-Antigravity_%7C_Claude_Code_%7C_Cursor_%7C_Windsurf_%7C_Copilot-purple.svg)](#-compatibilidad-universal-con-herramientas-de-ia)
 [![Licencia: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-Espacio de trabajo unificado basado en el patrón **Umbrella** de **Interpretable Context Methodology (ICM)** para gestionar proyectos de **Ciencia de Datos**, **Machine Learning Productivo** y **Desarrollo Agéntico** con la misma línea base de ingeniería, reproducibilidad y disciplina de contexto.
+Espacio de trabajo unificado basado en el patrón **Umbrella** de **Interpretable Context Methodology (ICM)** para gestionar proyectos de **Ciencia de Datos**, **Machine Learning Productivo** y **Desarrollo Agéntico** con la misma línea base de ingeniería, reproducibilidad y disciplina de contexto, **compatible de forma nativa con cualquier asistente o herramienta de IA para programación**.
+
+---
+
+## 🤖 Compatibilidad Universal con Herramientas de IA
+
+Cada proyecto e interactuador en `proyectosML` implementa la arquitectura **Single Source of Truth** con adaptadores específicos para cada herramienta del mercado:
+
+| Asistente / Herramienta | Archivo de Configuración | Cómo Opera |
+| :--- | :--- | :--- |
+| **Google Antigravity** | `AGENTS.md` + `~/.gemini/config/GEMINI.md` | Lee reglas jerárquicas y ejecuta skills de `_baseline/skills/`. |
+| **Claude Code (CLI)** | `CLAUDE.md` + `~/.claude/skills/` | Enrutamiento en raíz y acceso directo a las skills globales. |
+| **Cursor IDE** | `.cursorrules` (en raíz y en cada proyecto) | Aplica los contratos de etapa y restricciones de datos en cada chat o *Composer*. |
+| **Windsurf / Cascade** | `.windsurfrules` (en raíz y en cada proyecto) | Dirige al motor Cascade a respetar la inmutabilidad y los contratos ICM. |
+| **GitHub Copilot** | `.github/copilot-instructions.md` | Instrucciones de contexto automáticas para Copilot Chat en VS Code/JetBrains. |
+| **Aider / Codex / Open Source** | `AGENTS.md` + `CONTEXT.md` | Convención abierta de agentes para CLI. |
 
 ---
 
 ## 🌟 Características Principales
 
 1. **Línea Base Unificada (Patrón Umbrella)**:
-   - Configuración global para Antigravity en `_baseline/global_config/GEMINI.md`.
+   - Configuración global para Antigravity (`~/.gemini/config/GEMINI.md`) y Claude Code (`~/.claude/skills/`).
    - Incorporación nativa de la skill [`icm-architect`](https://github.com/RinDig/icm-architect) para diseñar y auditar workspaces.
    - Aislamiento total entre proyectos: cero contaminación cruzada de dependencias o contexto.
 2. **Tres Arquetipos de Proyectos Especializados**:
@@ -19,9 +34,9 @@ Espacio de trabajo unificado basado en el patrón **Umbrella** de **Interpretabl
    - ⚙️ **Machine Learning Productivo (`ml`)**: Pipelines de reentrenamiento, servicio web con FastAPI, validación con Pydantic, tests unitarios/integración y `Dockerfile`.
    - 🤖 **Desarrollo Agéntico (`agentic`)**: Gestión de `prompts/`, catálogo de `tools/` (JSON schemas + implementación), banco de `evals/`, memoria y trazas de observabilidad.
 3. **Automatización en 1 Comando**:
-   - `init-project.sh`: Script CLI para instanciar cualquier proyecto con su contrato de contexto completo en 2 segundos.
+   - `init-project.sh`: Script CLI para instanciar cualquier proyecto con su contrato de contexto completo y adaptadores para todas las IAs en 2 segundos.
 4. **Portabilidad y Respaldo Total**:
-   - `bootstrap.sh`: Configura Antigravity en cualquier máquina personal nueva en menos de 1 minuto.
+   - `bootstrap.sh`: Configura Antigravity y Claude Code en cualquier máquina personal nueva en menos de 1 minuto.
 
 ---
 
@@ -33,7 +48,7 @@ Si acabas de clonar este repositorio en una máquina nueva:
 cd ~/proyectosML
 ./bootstrap.sh
 ```
-El script vinculará automáticamente las reglas y skills a tu configuración global de Antigravity (`~/.gemini/config/`).
+El script vinculará automáticamente las reglas y skills a tu configuración global de Antigravity (`~/.gemini/config/`) y Claude Code (`~/.claude/skills/`).
 
 ---
 
@@ -54,8 +69,9 @@ Para crear un nuevo proyecto, ejecuta `init-project.sh` especificando el nombre 
 
 El script se encargará de:
 1. Copiar la plantilla correspondiente dentro de `projects/<nombre-proyecto>/`.
-2. Personalizar metadatos, autor y fechas.
-3. Registrar el proyecto en el catálogo raíz `CONTEXT.md`.
+2. Generar todos los adaptadores de IA (`AGENTS.md`, `CLAUDE.md`, `.cursorrules`, `.windsurfrules`, `.github/copilot-instructions.md`).
+3. Personalizar metadatos, autor y fechas.
+4. Registrar el proyecto en el catálogo raíz `CONTEXT.md`.
 
 ---
 
@@ -63,11 +79,15 @@ El script se encargará de:
 
 ```text
 proyectosML/
-├── AGENTS.md                              # Directrices del espacio Umbrella
+├── AGENTS.md                              # Directrices canónicas del espacio Umbrella
+├── CLAUDE.md                              # Adaptador para Claude Code
+├── .cursorrules                           # Adaptador para Cursor IDE
+├── .windsurfrules                         # Adaptador para Windsurf / Cascade
+├── .github/copilot-instructions.md        # Adaptador para GitHub Copilot
 ├── CONTEXT.md                             # Catálogo de proyectos activos
 ├── README.md                              # Esta guía
 ├── SETUP_GUIDE.md                         # Guía de recuperación paso a paso para nuevo equipo
-├── bootstrap.sh                           # Instalador en 1 clic
+├── bootstrap.sh                           # Instalador universal en 1 clic
 ├── init-project.sh                        # Generador de proyectos
 ├── .gitignore                             # Filtros globales para DS/ML/Agents
 │
@@ -76,7 +96,7 @@ proyectosML/
 │   ├── skills/
 │   │   ├── icm-architect/                 # Skill de RinDig para diseño y auditoría
 │   │   └── project-scaffold/              # Skill nativa para crear proyectos por chat
-│   └── _templates/                        # Plantillas maestras
+│   └── _templates/                        # Plantillas maestras con soporte multi-IA
 │       ├── ds-project-scaffold/           # Plantilla Ciencia de Datos (con research/)
 │       ├── ml-project-scaffold/           # Plantilla ML Productivo
 │       └── agentic-project-scaffold/      # Plantilla Desarrollo Agéntico

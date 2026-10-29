@@ -1,0 +1,9 @@
+# Cursor Rules — proyectosML
+
+You are an expert pair programmer working in an ICM (Interpretable Context Methodology) umbrella workspace.
+
+## Critical Instructions:
+1. **Authoritative Guidelines**: Always read and follow `AGENTS.md` and `CONTEXT.md` at the repository root.
+2. **Context Discipline**: Do NOT slurp or index entire datasets (*.csv, *.parquet) or binary models. Respect the 2k-8k token budget.
+3. **Project Scaffolding**: To create new projects, follow the conventions in `_baseline/_templates/` or run `./init-project.sh <name> --type <ds|ml|agentic>`.
+4. **Working in Subprojects**: When working in a subproject inside `projects/<project-name>/`, read its local `AGENTS.md`, `CONTEXT.md`, and `_context/` before writing any code.

@@ -112,9 +112,9 @@ else
     SED_INPLACE=("sed" "-i")
 fi
 
-find "${TARGET_DIR}" -type f -name "*.md" -exec "${SED_INPLACE[@]}" "s/{{PROJECT_NAME}}/${PROJECT_NAME}/g" {} +
-find "${TARGET_DIR}" -type f -name "*.md" -exec "${SED_INPLACE[@]}" "s/{{PROJECT_DESCRIPTION}}/${PROJECT_DESC}/g" {} +
-find "${TARGET_DIR}" -type f -name "*.md" -exec "${SED_INPLACE[@]}" "s/{{CREATION_DATE}}/${CREATION_DATE}/g" {} +
+find "${TARGET_DIR}" -type f \( -name "*.md" -o -name ".cursorrules" -o -name ".windsurfrules" \) -exec "${SED_INPLACE[@]}" "s/{{PROJECT_NAME}}/${PROJECT_NAME}/g" {} +
+find "${TARGET_DIR}" -type f \( -name "*.md" -o -name ".cursorrules" -o -name ".windsurfrules" \) -exec "${SED_INPLACE[@]}" "s/{{PROJECT_DESCRIPTION}}/${PROJECT_DESC}/g" {} +
+find "${TARGET_DIR}" -type f \( -name "*.md" -o -name ".cursorrules" -o -name ".windsurfrules" \) -exec "${SED_INPLACE[@]}" "s/{{CREATION_DATE}}/${CREATION_DATE}/g" {} +
 
 # 3. Registrar el proyecto en el catálogo raíz (CONTEXT.md)
 if [[ -f "${ROOT_CONTEXT}" ]]; then
@@ -130,10 +130,12 @@ cat <<EOF
 📂 Ubicación: ${TARGET_DIR}
 🏷️  Tipo:      ${TYPE_LABEL} (${PROJECT_TYPE})
 📄 Resumen:   ${PROJECT_DESC}
+🤖 Soporte:   Antigravity, Claude Code, Cursor, Windsurf, Copilot
 ─────────────────────────────────────────────────────────────
 
 Próximos pasos recomendados:
   1. cd ${TARGET_DIR}
   2. Revisa y completa 'research/01_problem_formulation.md' o '_context/domain.md'
-  3. Abre una sesión con Antigravity para comenzar el desarrollo guiado por contratos ICM.
+  3. Abre tu herramienta de IA preferida (Antigravity, Claude Code, Cursor, Windsurf o VS Code Copilot)
+     para comenzar el desarrollo guiado por contratos ICM.
 EOF

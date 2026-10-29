@@ -1,64 +1,70 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# bootstrap.sh — Instalador de Línea Base y Recuperación ante Cambio de Equipo
+# bootstrap.sh — Instalador Universal de Línea Base (Antigravity, Claude Code, Cursor, Windsurf)
 # Espacio de Trabajo: proyectosML
 # ==============================================================================
 
 set -euo pipefail
 
 BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+GLOBAL_RULE_SRC="${BASE_DIR}/_baseline/global_config/GEMINI.md"
+
+echo "=================================================================="
+echo "🛠️  Iniciando Bootstrap Universal de Línea Base proyectosML..."
+echo "=================================================================="
+
+# 1. Configuración para Google Antigravity
 GEMINI_CONFIG_DIR="${HOME}/.gemini/config"
 GEMINI_SKILLS_DIR="${GEMINI_CONFIG_DIR}/skills"
+mkdir -p "${GEMINI_CONFIG_DIR}" "${GEMINI_SKILLS_DIR}"
 
-echo "=================================================================="
-echo "🛠️  Iniciando Bootstrap de Línea Base proyectosML..."
-echo "=================================================================="
-
-# 1. Asegurar directorios de configuración de Antigravity
-mkdir -p "${GEMINI_CONFIG_DIR}"
-mkdir -p "${GEMINI_SKILLS_DIR}"
-
-# 2. Configurar Regla Global (~/.gemini/config/GEMINI.md)
-GLOBAL_RULE_SRC="${BASE_DIR}/_baseline/global_config/GEMINI.md"
-GLOBAL_RULE_DEST="${GEMINI_CONFIG_DIR}/GEMINI.md"
-
-if [[ -f "${GLOBAL_RULE_DEST}" ]]; then
+if [[ -f "${GEMINI_CONFIG_DIR}/GEMINI.md" && ! -L "${GEMINI_CONFIG_DIR}/GEMINI.md" ]]; then
     echo "ℹ️  Respaldando regla global existente en GEMINI.md.bak..."
-    cp "${GLOBAL_RULE_DEST}" "${GLOBAL_RULE_DEST}.bak"
+    cp "${GEMINI_CONFIG_DIR}/GEMINI.md" "${GEMINI_CONFIG_DIR}/GEMINI.md.bak"
 fi
 
-echo "🔗 Vinculando regla global GEMINI.md..."
-ln -sf "${GLOBAL_RULE_SRC}" "${GLOBAL_RULE_DEST}"
+echo "🔗 [Antigravity] Vinculando regla global GEMINI.md..."
+ln -sf "${GLOBAL_RULE_SRC}" "${GEMINI_CONFIG_DIR}/GEMINI.md"
 
-# 3. Instalar / Enlazar Skills Globales
-echo "🔗 Registrando skill 'icm-architect'..."
-rm -rf "${GEMINI_SKILLS_DIR}/icm-architect"
+echo "🔗 [Antigravity] Registrando skills 'icm-architect' y 'project-scaffold'..."
+rm -rf "${GEMINI_SKILLS_DIR}/icm-architect" "${GEMINI_SKILLS_DIR}/project-scaffold"
 ln -sf "${BASE_DIR}/_baseline/skills/icm-architect" "${GEMINI_SKILLS_DIR}/icm-architect"
-
-echo "🔗 Registrando skill 'project-scaffold'..."
-rm -rf "${GEMINI_SKILLS_DIR}/project-scaffold"
 ln -sf "${BASE_DIR}/_baseline/skills/project-scaffold" "${GEMINI_SKILLS_DIR}/project-scaffold"
 
-# 4. Asegurar permisos ejecutables en scripts
+# 2. Configuración para Claude Code (~/.claude/skills)
+CLAUDE_DIR="${HOME}/.claude"
+CLAUDE_SKILLS_DIR="${CLAUDE_DIR}/skills"
+mkdir -p "${CLAUDE_SKILLS_DIR}"
+
+echo "🔗 [Claude Code] Registrando skills en ~/.claude/skills/..."
+rm -rf "${CLAUDE_SKILLS_DIR}/icm-architect" "${CLAUDE_SKILLS_DIR}/project-scaffold"
+ln -sf "${BASE_DIR}/_baseline/skills/icm-architect" "${CLAUDE_SKILLS_DIR}/icm-architect"
+ln -sf "${BASE_DIR}/_baseline/skills/project-scaffold" "${CLAUDE_SKILLS_DIR}/project-scaffold"
+
+# 3. Asegurar permisos ejecutables en scripts
 chmod +x "${BASE_DIR}/init-project.sh"
 chmod +x "${BASE_DIR}/bootstrap.sh"
 
-# 5. Comprobar herramientas recomendadas
+# 4. Comprobar herramientas instaladas en el sistema
 echo ""
-echo "🔍 Verificando herramientas del sistema:"
+echo "🔍 Verificando herramientas de desarrollo e IA:"
 command -v git >/dev/null 2>&1 && echo "  ✅ git: detectado" || echo "  ⚠️  git: NO instalado"
 command -v python3 >/dev/null 2>&1 && echo "  ✅ python3: detectado" || echo "  ⚠️  python3: NO instalado"
-command -v ruff >/dev/null 2>&1 && echo "  ✅ ruff: detectado" || echo "  ℹ️  ruff: no detectado en PATH (recomendado para formateo rápido: pip install ruff)"
+command -v ruff >/dev/null 2>&1 && echo "  ✅ ruff: detectado" || echo "  ℹ️  ruff: no detectado (recomendado: pip install ruff)"
+command -v claude >/dev/null 2>&1 && echo "  ✅ claude (Claude Code CLI): detectado" || echo "  ℹ️  claude: no detectado en PATH"
+command -v cursor >/dev/null 2>&1 && echo "  ✅ cursor: detectado" || echo "  ℹ️  cursor: no detectado en PATH"
 
 echo ""
 echo "=================================================================="
-echo "🎉 ¡Línea base de proyectosML instalada con éxito!"
+echo "🎉 ¡Línea base universal de proyectosML instalada con éxito!"
 echo "=================================================================="
-echo "Antigravity ahora tiene activas:"
-echo "  • Reglas globales de calidad y metodología ICM en ~/.gemini/config/GEMINI.md"
-echo "  • Skill global 'icm-architect' (para diseñar y auditar workspaces)"
-echo "  • Skill global 'project-scaffold' (para crear proyectos por chat)"
+echo "Herramientas de IA configuradas con la misma línea base:"
+echo "  • Google Antigravity : ~/.gemini/config/GEMINI.md + skills globales"
+echo "  • Claude Code (CLI)  : ~/.claude/skills/ + CLAUDE.md"
+echo "  • Cursor IDE         : .cursorrules en cada proyecto"
+echo "  • Windsurf / Cascade : .windsurfrules en cada proyecto"
+echo "  • GitHub Copilot     : .github/copilot-instructions.md en cada proyecto"
 echo ""
-echo "Para crear un nuevo proyecto ejecuta:"
+echo "Para crear un nuevo proyecto compatible con cualquier IA ejecuta:"
 echo "  cd ${BASE_DIR} && ./init-project.sh <nombre> --type <ds|ml|agentic>"
 echo "=================================================================="

@@ -1,0 +1,5 @@
+# Windsurf Rules — {{PROJECT_NAME}} (ML Productivo)
+
+1. Follow `AGENTS.md` and `CONTEXT.md`.
+2. Inspect `_context/api_specs.md` before altering routes or data contracts.
+3. Validate all inputs with Pydantic and keep Dockerfile updated.

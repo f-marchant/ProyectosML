@@ -1,0 +1,6 @@
+# Cursor Rules — {{PROJECT_NAME}} (Desarrollo Agéntico)
+
+1. Follow `AGENTS.md` and `CONTEXT.md`.
+2. Do not inline prompt templates in Python files; maintain them in `prompts/`.
+3. All agent tools must have schema definitions under `tools/definitions/`.
+4. Run `pytest evals/` to verify agent behavior benchmarks.
