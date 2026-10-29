@@ -14,9 +14,3 @@ Este archivo mantiene el índice de todos los proyectos creados dentro de `proje
 | `projects/` | Layer 4 (Los Productos) | Espacio donde viven los proyectos individuales |
 
 ---
-
-## 2. Catálogo de Proyectos Activos
-
-| Nombre del Proyecto | Tipo | Ubicación | Descripción |
-| :--- | :--- | :--- | :--- |
-| `AgentContextEng` | Desarrollo Agéntico / Skills | `AgentContextEng/` | 18 skills de Context Engineering y herramientas CLI para agentes |
