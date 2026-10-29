@@ -1,4 +1,4 @@
-# proyectosML — Línea Base Universal y Espacio Umbrella con ICM
+# ProyectosML — Línea Base Universal y Espacio Umbrella con ICM
 
 [![Metodología: ICM](https://img.shields.io/badge/Methodology-ICM-blue.svg)](https://github.com/RinDig/Interpretable-Context-Methodology)
 [![Compatibilidad: Universal AI](https://img.shields.io/badge/AI_Tools-Antigravity_%7C_Claude_Code_%7C_Cursor_%7C_Windsurf_%7C_Copilot-purple.svg)](#-compatibilidad-universal-con-herramientas-de-ia)
