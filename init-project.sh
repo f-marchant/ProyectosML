@@ -13,17 +13,19 @@ ROOT_CONTEXT="${BASE_DIR}/CONTEXT.md"
 
 usage() {
     cat <<EOF
-Uso: $0 <nombre-proyecto> [--type ds|ml|agentic] ["Descripción breve del proyecto"]
+Uso: $0 <nombre-proyecto> [--type ds|ml|agentic|app] ["Descripción breve del proyecto"]
 
 Tipos de proyecto disponibles:
   ds        Ciencia de Datos (CRISP-DM + research/ + capas de datos + notebooks) [DEFAULT]
   ml        Machine Learning Productivo (API FastAPI + Docker + pipelines)
   agentic   Desarrollo Agéntico (Prompts + Tools/MCP + Evals + Grafos de estado)
+  app       Aplicación de Datos / Dashboard MVP (Streamlit + Impeccable Design System)
 
 Ejemplos:
   $0 churn-prediction --type ds "Modelo predictivo de fuga de clientes con lightgbm"
   $0 recommendation-api --type ml "Microservicio de recomendaciones en tiempo real"
   $0 research-agent --type agentic "Asistente autónomo con herramientas de búsqueda"
+  $0 sales-dashboard --type app "Dashboard interactivo de métricas de ventas y KPIs"
 EOF
     exit 1
 }
@@ -85,9 +87,13 @@ case "${PROJECT_TYPE}" in
         TEMPLATE_SOURCE="${TEMPLATES_DIR}/agentic-project-scaffold"
         TYPE_LABEL="Desarrollo Agéntico"
         ;;
+    app|data-app)
+        TEMPLATE_SOURCE="${TEMPLATES_DIR}/data-app-scaffold"
+        TYPE_LABEL="Aplicación de Datos (Dashboard MVP)"
+        ;;
     *)
         echo "❌ Error: Tipo de proyecto no reconocido: '${PROJECT_TYPE}'." >&2
-        echo "Opciones válidas: ds | ml | agentic" >&2
+        echo "Opciones válidas: ds | ml | agentic | app" >&2
         exit 1
         ;;
 esac
@@ -141,7 +147,7 @@ cat <<EOF
 
 Próximos pasos recomendados:
   1. cd ${TARGET_DIR}
-  2. Revisa y completa 'research/01_problem_formulation.md' o '_context/domain.md'
+  2. Revisa y completa los contratos en '_context/' (domain.md, product.md, design.md) o 'research/'
   3. Abre tu herramienta de IA preferida (Antigravity, Claude Code, Cursor, Windsurf o VS Code Copilot)
      para comenzar el desarrollo guiado por contratos ICM.
 EOF

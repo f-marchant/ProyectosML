@@ -88,6 +88,9 @@ chmod +x bootstrap.sh init-project.sh sync-adapters.sh
 
 # Para Desarrollo Agéntico (Prompts + Tools + Evals + Grafos):
 ./init-project.sh analista-autonomo --type agentic "Agente con herramientas de búsqueda y RAG"
+
+# Para Aplicaciones de Datos y Dashboards MVP (Streamlit + Impeccable UI):
+./init-project.sh visualizador-kpis --type app "Dashboard interactivo para usuario final sin AI slop"
 ```
 
 ### 4. Sincronizar Reglas entre Asistentes (`sync-adapters.sh`)
@@ -124,32 +127,32 @@ python3 projects/scoring-crediticio/scripts/check_context_budget.py
 
 ---
 
-## 📊 Comparativa de los 3 Arquetipos de Proyectos
+## 📊 Comparativa de los 4 Arquetipos de Proyectos
 
 ```text
-🔬 CIENCIA DE DATOS (ds)            ⚙️ ML PRODUCTIVO (ml)              🤖 AGÉNTICO (agentic)
-─────────────────────────────────   ────────────────────────────────   ──────────────────────────────────
-projects/mi-analisis/               projects/mi-servicio-ml/           projects/mi-agente/
-├── AGENTS.md / CLAUDE.md           ├── AGENTS.md / CLAUDE.md          ├── AGENTS.md / CLAUDE.md
-├── .cursorrules / .windsurfrules   ├── .cursorrules / .windsurfrules  ├── .cursorrules / .windsurfrules
-├── CONTEXT.md                      ├── CONTEXT.md                     ├── CONTEXT.md
-│                                   │                                  │
-├── _context/                       ├── _context/                      ├── _context/
-│   ├── domain.md (variables)       │   ├── api_specs.md (endpoints)   │   ├── persona.md (rol del agente)
-│   ├── architecture.md             │   ├── architecture.md (pipeline) │   ├── architecture.md (grafo)
-│   └── conventions.md (estadística)│   └── conventions.md (estilo)    │   └── safety_guardrails.md
-│                                   │                                  │
-├── research/ (🧠 Sustento Teórico) ├── data/ (sample y schemas)       ├── prompts/ (system y templates)
-│   ├── 01_problem_formulation.md   │                                  ├── tools/ (schemas + código)
-│   ├── 02_literature_review.md     ├── src/                           ├── memory/ (sesiones + RAG)
-│   ├── 03_methodological_rationale │   ├── api/ (FastAPI)             ├── evals/ (golden benchmarks)
-│   └── notes/hypothesis_log.md     │   ├── pipeline/ (entrenamiento)  └── logs/traces/ (observabilidad)
-│                                   │   └── inference/ (predicción)
-├── data/ (raw, interim, processed) │
-├── notebooks/ (01_eda a 04_eval)   ├── tests/ (unit e integration)
-├── src/ (data, features, models)   ├── Dockerfile
-├── tests/ (data leakage e higiene) └── deployment/
-├── scripts/ (check context budget)
+🔬 CIENCIA DE DATOS (ds)            ⚙️ ML PRODUCTIVO (ml)              🤖 AGÉNTICO (agentic)              📊 DATA APP / DASHBOARD (app)
+─────────────────────────────────   ────────────────────────────────   ──────────────────────────────────   ─────────────────────────────────────
+projects/mi-analisis/               projects/mi-servicio-ml/           projects/mi-agente/                  projects/mi-dashboard/
+├── AGENTS.md / CLAUDE.md           ├── AGENTS.md / CLAUDE.md          ├── AGENTS.md / CLAUDE.md            ├── AGENTS.md / CLAUDE.md
+├── .cursorrules / .windsurfrules   ├── .cursorrules / .windsurfrules  ├── .cursorrules / .windsurfrules    ├── .cursorrules / .windsurfrules
+├── CONTEXT.md                      ├── CONTEXT.md                     ├── CONTEXT.md                       ├── CONTEXT.md
+│                                   │                                  │                                    │
+├── _context/                       ├── _context/                      ├── _context/                        ├── _context/
+│   ├── domain.md (variables)       │   ├── api_specs.md (endpoints)   │   ├── persona.md (rol del agente)  │   ├── product.md (audiencia/MVP)
+│   ├── architecture.md             │   ├── architecture.md (pipeline) │   ├── architecture.md (grafo)      │   ├── design.md (tokens Impeccable)
+│   └── conventions.md (estadística)│   └── conventions.md (estilo)    │   └── safety_guardrails.md         │   └── data_dictionary.md (esquemas)
+│                                   │                                  │                                    │
+├── research/ (🧠 Sustento Teórico) ├── data/ (sample y schemas)       ├── prompts/ (system y templates)    ├── data/ (sample data)
+│   ├── 01_problem_formulation.md   │                                  ├── tools/ (schemas + código)        ├── src/
+│   ├── 02_literature_review.md     ├── src/                           ├── memory/ (sesiones + RAG)         │   ├── app.py (Streamlit / UI)
+│   ├── 03_methodological_rationale │   ├── api/ (FastAPI)             ├── evals/ (golden benchmarks)       │   ├── components/ (KPIs, charts)
+│   └── notes/hypothesis_log.md     │   ├── pipeline/ (entrenamiento)  └── logs/traces/ (observabilidad)    │   ├── data_loader.py (caching)
+│                                   │   └── inference/ (predicción)                                         │   └── styles/ (custom.css)
+├── data/ (raw, interim, processed) │                                  ├── .agents/skills/                  ├── .agents/skills/impeccable/
+├── notebooks/ (01_eda a 04_eval)   ├── tests/ (unit e integration)    │   └── to-spec, to-tickets, ...     │   └── audit, polish, critique...
+├── src/ (data, features, models)   ├── Dockerfile                     └── tests/ (git hygiene)             ├── tests/ (data loader e higiene)
+├── tests/ (data leakage e higiene) └── deployment/                                                         ├── Dockerfile
+├── scripts/ (check context budget)                                                                         └── scripts/ (check context budget)
 └── reports/ (summary.md)
 ```
 
@@ -202,6 +205,8 @@ Este repositorio implementa y extiende conceptos fundamentales de la literatura 
   - *Estructura modular de datos por capas (`data/raw`, `data/interim`, `data/processed`)*.
 - **[skills](https://github.com/mattpocock/skills)** por Matt Pocock (Licencia MIT).
   - *Inspiración metodológica*: Patrones de SDLC riguroso para agentes, entrevistas anti-supuestos (`grill-me`), depuración sistemática (`diagnose`), traspasos limpios (`handoff`), retrospectivas (`retro`) y ciclo agéntico spec-tickets-implementación.
+- **[impeccable](https://github.com/pbakaus/impeccable)** por Paul Bakaus (Licencia MIT).
+  - *Inspiración y sistema de diseño visual*: Filosofía anti "AI slop", contratos de diseño (`_context/design.md`, `_context/product.md`) y suite de auditoría/crítica visual para el arquetipo de Data Apps y dashboards.
 
 ---
 

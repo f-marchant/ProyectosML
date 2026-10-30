@@ -1,0 +1,12 @@
+---
+description: Universal project guidelines and ICM contracts
+globs: *
+alwaysApply: true
+---
+# Main Project Directives — data-app-scaffold
+
+Authoritative source of truth:
+- Read [AGENTS.md](../../AGENTS.md) for coding standards, YAGNI, and security.
+- Read [CONTEXT.md](../../CONTEXT.md) for stage contracts and file routing.
+- If working with data, enforce data leakage prevention (fit on train only).
+- Keep context lean (2k-8k tokens).

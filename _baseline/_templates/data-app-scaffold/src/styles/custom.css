@@ -1,0 +1,61 @@
+/* custom.css — Estilos Impeccable para Streamlit Data App */
+
+/* 1. Fondo y Contenedor Principal */
+.stApp {
+    background-color: #0F172A;
+    color: #F1F5F9;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* 2. Ocultar marcas y decoraciones genéricas */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+
+/* 3. Tipografía deliberada */
+h1, h2, h3, h4, h5, h6 {
+    color: #F8FAFC !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.02em !important;
+}
+
+/* 4. Tarjetas KPI / Métricas */
+div[data-testid="stMetric"] {
+    background-color: #1E293B;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+div[data-testid="stMetricLabel"] {
+    color: #94A3B8 !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+}
+
+div[data-testid="stMetricValue"] {
+    color: #F8FAFC !important;
+    font-size: 1.85rem !important;
+    font-weight: 700 !important;
+    font-variant-numeric: tabular-nums;
+}
+
+/* 5. Contenedor de Gráficos y Tablas */
+div[data-testid="stPlotlyChart"] {
+    background-color: #1E293B;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 0.75rem;
+}
+
+/* 6. Barra lateral (Sidebar) */
+section[data-testid="stSidebar"] {
+    background-color: #0B1120;
+    border-right: 1px solid #1E293B;
+}
+
+/* 7. Controles de formulario e inputs */
+.stSelectbox, .stSlider, .stMultiSelect {
+    color: #F1F5F9;
+}
