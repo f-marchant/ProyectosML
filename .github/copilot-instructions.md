@@ -1,4 +1,4 @@
-# GitHub Copilot Instructions — proyectosML
+# GitHub Copilot Instructions — workspace_proyectos
 <!-- Generated automatically by sync-adapters.sh from AGENTS.md -->
 
 - Authoritative source: refer to AGENTS.md for development standards and CONTEXT.md for stage contracts.

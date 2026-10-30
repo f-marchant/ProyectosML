@@ -1,4 +1,4 @@
-# CLAUDE.md — proyectosML
+# CLAUDE.md — workspace_proyectos
 
 > Adaptador generado automáticamente por sync-adapters.sh a partir de AGENTS.md.
 

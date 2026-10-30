@@ -26,3 +26,10 @@ Estás en el proyecto de desarrollo agéntico `{{PROJECT_NAME}}`. Sigue la metod
 - Correr agente: `python -m src.agent`
 - Ejecutar suite de Evals: `pytest evals/`
 - Linting y formato: `ruff check src/ && ruff format src/`
+
+---
+
+## 4. Skills Especializadas para el Ciclo de Desarrollo Agéntico (`.agents/skills/`)
+- `to-spec`: Sintetiza el diseño en una especificación técnica formal.
+- `to-tickets`: Descompone la especificación en un grafo de tickets ejecutables (tracer bullets con dependencias).
+- `implement-spec`: Orquesta la construcción de la frontera de tickets con subagentes y ventanas limpias.

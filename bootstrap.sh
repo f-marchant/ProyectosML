@@ -26,10 +26,15 @@ fi
 echo "🔗 [Antigravity] Vinculando regla global GEMINI.md..."
 ln -sf "${GLOBAL_RULE_SRC}" "${GEMINI_CONFIG_DIR}/GEMINI.md"
 
-echo "🔗 [Antigravity] Registrando skills 'icm-architect' y 'project-scaffold'..."
-rm -rf "${GEMINI_SKILLS_DIR}/icm-architect" "${GEMINI_SKILLS_DIR}/project-scaffold"
-ln -sf "${BASE_DIR}/_baseline/skills/icm-architect" "${GEMINI_SKILLS_DIR}/icm-architect"
-ln -sf "${BASE_DIR}/_baseline/skills/project-scaffold" "${GEMINI_SKILLS_DIR}/project-scaffold"
+echo "🔗 [Antigravity] Registrando skills de línea base en ~/.gemini/config/skills/..."
+for skill_path in "${BASE_DIR}/_baseline/skills"/*; do
+    if [[ -d "${skill_path}" ]]; then
+        skill_name="$(basename "${skill_path}")"
+        rm -rf "${GEMINI_SKILLS_DIR}/${skill_name}"
+        ln -sf "${skill_path}" "${GEMINI_SKILLS_DIR}/${skill_name}"
+        echo "   -> ${skill_name}"
+    fi
+done
 
 # 2. Configuración para Claude Code (~/.claude/skills)
 CLAUDE_DIR="${HOME}/.claude"
@@ -37,9 +42,13 @@ CLAUDE_SKILLS_DIR="${CLAUDE_DIR}/skills"
 mkdir -p "${CLAUDE_SKILLS_DIR}"
 
 echo "🔗 [Claude Code] Registrando skills en ~/.claude/skills/..."
-rm -rf "${CLAUDE_SKILLS_DIR}/icm-architect" "${CLAUDE_SKILLS_DIR}/project-scaffold"
-ln -sf "${BASE_DIR}/_baseline/skills/icm-architect" "${CLAUDE_SKILLS_DIR}/icm-architect"
-ln -sf "${BASE_DIR}/_baseline/skills/project-scaffold" "${CLAUDE_SKILLS_DIR}/project-scaffold"
+for skill_path in "${BASE_DIR}/_baseline/skills"/*; do
+    if [[ -d "${skill_path}" ]]; then
+        skill_name="$(basename "${skill_path}")"
+        rm -rf "${CLAUDE_SKILLS_DIR}/${skill_name}"
+        ln -sf "${skill_path}" "${CLAUDE_SKILLS_DIR}/${skill_name}"
+    fi
+done
 
 # 3. Asegurar permisos ejecutables en scripts
 chmod +x "${BASE_DIR}/init-project.sh"

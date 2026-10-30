@@ -3,7 +3,7 @@ description: Universal project guidelines and ICM contracts
 globs: *
 alwaysApply: true
 ---
-# Main Project Directives — proyectosML
+# Main Project Directives — workspace_proyectos
 
 Authoritative source of truth:
 - Read [AGENTS.md](../../AGENTS.md) for coding standards, YAGNI, and security.

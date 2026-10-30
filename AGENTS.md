@@ -16,11 +16,16 @@ Este repositorio es un **Paraguas de Proyectos (Umbrella Workspace)** estructura
 
 ---
 
-## 2. Enrutamiento Rápido de Tareas
+## 2. Enrutamiento Rápido de Tareas y Skills Disponibles
 
-- **Para crear un nuevo proyecto**: Ejecuta `./init-project.sh <nombre> --type <ds|ml|agentic>`.
+- **Para crear un nuevo proyecto**: Ejecuta `./init-project.sh <nombre> --type <ds|ml|agentic>` o invoca la skill `project-scaffold`.
 - **Para consultar proyectos activos**: Lee `CONTEXT.md` en la raíz.
-- **Para auditar o diseñar un nuevo flujo**: Invoca la skill `icm-architect`.
+- **Para auditar o diseñar un nuevo flujo ICM**: Invoca la skill `icm-architect`.
+- **Para desafiar y validar un plan/diseño antes de codificar**: Invoca la skill `grill-me`.
+- **Para depurar fallos o regresiones sistemáticamente**: Invoca la skill `diagnose`.
+- **Para compactar y transferir la sesión actual**: Invoca la skill `handoff`.
+- **Para retrospectiva y mejora de directrices/guardarraíles**: Invoca la skill `retro`.
+- **Para proyectos agénticos (`--type agentic`)**: Disponen de las skills especializadas `to-spec`, `to-tickets` e `implement-spec` en `.agents/skills/`.
 - **Para trabajar en un proyecto específico**: Abre el directorio del proyecto en `projects/<nombre>/`.
 
 ---

@@ -36,12 +36,29 @@ Los proyectos creados bajo `proyectosML` se integran con diversos entornos media
 
 | Asistente / Herramienta | Archivo(s) de Configuración | Nivel de Soporte | Cómo Opera |
 | :--- | :--- | :---: | :--- |
-| **Google Antigravity** | `AGENTS.md` + `~/.gemini/config/GEMINI.md` | **Nativo / Global** | Carga reglas globales, disciplina de tokens y ejecuta skills del sistema (`icm-architect`, `project-scaffold`). |
+| **Google Antigravity** | `AGENTS.md` + `~/.gemini/config/GEMINI.md` | **Nativo / Global** | Carga reglas globales, disciplina de tokens y ejecuta catálogo de skills (`_baseline/skills/`). |
 | **Claude Code (CLI)** | `CLAUDE.md` + `~/.claude/skills/` | **Adaptador Sincronizado** | Enrutamiento optimizado para CLI y acceso a skills globales del usuario. |
 | **Cursor IDE** | `.cursor/rules/main.mdc` y `.cursorrules` | **Adaptador Sincronizado** | Compatible con el formato moderno de reglas `.mdc` y retrocompatible con `.cursorrules`. |
 | **Windsurf / Cascade** | `.windsurfrules` | **Adaptador Sincronizado** | Instruye al motor Cascade para respetar contratos ICM e inmutabilidad de datos. |
 | **GitHub Copilot** | `.github/copilot-instructions.md` | **Adaptador Sincronizado** | Provee contexto a Copilot Chat en VS Code, JetBrains y GitHub.com. |
 | **Aider / Agentes CLI** | `AGENTS.md` + `CONTEXT.md` | **Estándar Abierto** | Lee especificaciones markdown estándar directamente desde el workspace. |
+
+### 🛠️ Skills Integradas en la Línea Base (`_baseline/skills/`)
+
+El framework incluye un conjunto curado de skills nativas (estándar abierto `SKILL.md`) diseñadas para eliminar el "vibe coding" y forzar rigor de ingeniería:
+
+| Skill | Ámbito | Descripción |
+| :--- | :--- | :--- |
+| **`grill-me`** | Transversal | Entrevista exhaustiva por rondas para desafiar supuestos, clarificar trade-offs y pulir decisiones de diseño antes de escribir código. |
+| **`diagnose`** | Transversal | Disciplina metódica de 6 fases para aislar y resolver bugs difíciles o regresiones de rendimiento (incluye script HITL). |
+| **`handoff`** | Transversal | Compacta la sesión en un artefacto estructurado para reanudar el trabajo en una nueva sesión dentro del presupuesto de tokens (2k–8k). |
+| **`retro`** | Transversal | Retrospectiva post-sesión para identificar fricciones, optimizar el uso de herramientas y alimentar las reglas en `AGENTS.md`. |
+| **`icm-architect`**| Transversal | Diseña y audita espacios de trabajo bajo los 6 arquetipos formales de la metodología ICM. |
+| **`project-scaffold`** | Transversal | Inicializa y estandariza nuevos proyectos (`ds`, `ml`, `agentic`) con sus contratos de contexto y tests. |
+| **`to-spec`** | Agéntico | Sintetiza el diseño acordado en una especificación técnica formal y estructurada (historias, interfaces y evals). |
+| **`to-tickets`** | Agéntico | Descompone una especificación en un grafo de tickets ejecutables (rebanadas verticales *tracer bullets* con dependencias). |
+| **`implement-spec`**| Agéntico | Orquesta la construcción de la frontera de tickets con subagentes independientes y ventanas de contexto limpias. |
+
 
 ---
 
@@ -185,6 +202,8 @@ Este repositorio implementa y extiende conceptos fundamentales de la literatura 
   - *Estructura modular de datos por capas (`data/raw`, `data/interim`, `data/processed`)*.
 - **[Agent Skills for Context Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering)** por Muratcan Koylan (Licencia MIT).
   - *Base del subproyecto `AgentContextEng`*.
+- **[skills](https://github.com/mattpocock/skills)** por Matt Pocock (Licencia MIT).
+  - *Inspiración metodológica*: Patrones de SDLC riguroso para agentes, entrevistas anti-supuestos (`grill-me`), depuración sistemática (`diagnose`), traspasos limpios (`handoff`), retrospectivas (`retro`) y ciclo agéntico spec-tickets-implementación.
 
 ---
 
