@@ -21,6 +21,7 @@ Este repositorio es un **Paraguas de Proyectos (Umbrella Workspace)** estructura
 - **Para crear un nuevo proyecto**: Ejecuta `./init-project.sh <nombre> --type <ds|ml|agentic|app>` o invoca la skill `project-scaffold`.
 - **Para consultar proyectos activos**: Lee `CONTEXT.md` en la raíz.
 - **Para auditar o diseñar un nuevo flujo ICM**: Invoca la skill `icm-architect`.
+- **Para diseñar, auditar o gobernar arquitecturas multi-agente empresariales**: Invoca la skill `enterprise-agent-designer` (v7.3.0: 23 workers, contratos de etapa, taxonomía de capabilities, mitigación de prompt injection y planes de migración/rollback).
 - **Para desafiar y validar un plan/diseño antes de codificar**: Invoca la skill `grill-me`.
 - **Para depurar fallos o regresiones sistemáticamente**: Invoca la skill `diagnose`.
 - **Para compactar y transferir la sesión actual**: Invoca la skill `handoff`.

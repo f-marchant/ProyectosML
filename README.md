@@ -56,6 +56,7 @@ El framework incluye un conjunto curado de skills nativas (estándar abierto `SK
 | **`interface-review`** | Transversal | Audita un git diff o pull request en busca de regresiones visuales, de accesibilidad o layout introducidas en la interfaz. |
 | **`icm-architect`**| Transversal | Diseña y audita espacios de trabajo bajo los 6 arquetipos formales de la metodología ICM. |
 | **`project-scaffold`** | Transversal | Inicializa y estandariza nuevos proyectos (`ds`, `ml`, `agentic`, `app`) con sus contratos de contexto y tests. |
+| **`enterprise-agent-designer`** | Agéntico / Transversal | Diseña, audita y gobierna sistemas multi-agente empresariales complejos (v7.3.0: 23 workers, contratos de etapa, taxonomía de 6 capabilities, mitigación de prompt injection indirecto y planes de migración/rollback). |
 | **`to-spec`** | Agéntico | Sintetiza el diseño acordado en una especificación técnica formal y estructurada (historias, interfaces y evals). |
 | **`to-tickets`** | Agéntico | Descompone una especificación en un grafo de tickets ejecutables (rebanadas verticales *tracer bullets* con dependencias). |
 | **`implement-spec`**| Agéntico | Orquesta la construcción de la frontera de tickets con subagentes independientes y ventanas de contexto limpias. |

@@ -30,6 +30,7 @@ Estás en el proyecto de desarrollo agéntico `{{PROJECT_NAME}}`. Sigue la metod
 ---
 
 ## 4. Skills Especializadas para el Ciclo de Desarrollo Agéntico (`.agents/skills/`)
+- `enterprise-agent-designer` (Global): Diseña, audita y gobierna la arquitectura multi-agente, taxonomía de capabilities, contratos y mitigaciones.
 - `to-spec`: Sintetiza el diseño en una especificación técnica formal.
 - `to-tickets`: Descompone la especificación en un grafo de tickets ejecutables (tracer bullets con dependencias).
 - `implement-spec`: Orquesta la construcción de la frontera de tickets con subagentes y ventanas limpias.

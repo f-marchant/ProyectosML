@@ -15,3 +15,4 @@ Este archivo mantiene el índice de todos los proyectos creados dentro de `proje
 
 ---
 
+| `test-agent-sandbox` | Desarrollo Agéntico | `projects/test-agent-sandbox/` | Proyecto test-agent-sandbox bajo metodología ICM |

@@ -1,0 +1,137 @@
+# Plantilla de Contexto de Etapa
+
+[DOCUMENT_ID: AGENT_ID_STAGE_ID_CONTEXT]
+
+[VERSION: 1.0.0]
+
+[MAIN_FLOW]
+
+## Objetivo
+
+[Objetivo.]
+
+## Contexto necesario
+
+[DEFINE_CONTEXT_REQUIREMENTS:]
+
+- L0:
+- L1:
+- L2:
+- L3:
+- L4:
+
+[END_CONTEXT_REQUIREMENTS]
+
+## Entrada
+
+[DEFINE_INPUT:]
+
+- ARTIFACT:
+- CONTRACT:
+- REQUIRED:
+
+[END_INPUT]
+
+## Fuentes
+
+[DEFINE_SOURCES:]
+
+- SOURCE:
+  - role:
+  - priority:
+
+[END_SOURCES]
+
+## Variables
+
+[DEFINE_VARIABLES:]
+
+- variable: type
+
+[END_VARIABLES]
+
+## Estados
+
+[DEFINE_ENUM: StageRecordStatus]
+
+- PENDIENTE
+- EN_PROCESO
+- GENERADO
+- REQUIERE_REVISION
+- FALLIDO
+
+[END_ENUM]
+
+## Restricciones
+
+[DEFINE_CONSTRAINTS:]
+
+- MUST:
+- ALLOW:
+- FORBID:
+
+[END_CONSTRAINTS]
+
+## Workflow
+
+[DEFINE_WORKFLOW: StageWorkflow]
+
+EXECUTE IN ORDER:
+
+1. CALL WORKER:
+2. CALL WORKER:
+3. CALL WORKER:
+
+[END_WORKFLOW]
+
+## Output
+
+[DEFINE_OUTPUT:]
+
+- ARTIFACT:
+- CONTRACT:
+- VALIDATION:
+
+[END_OUTPUT]
+
+## Review Gate
+
+[DEFINE_REVIEW_GATE:]
+
+- REQUIRED:
+- CONDITION:
+- APPROVER:
+- INVALIDATION_SCOPE:
+
+[END_REVIEW_GATE]
+
+## Excepciones
+
+[DEFINE_EXCEPTION_CONTROL:]
+
+- STRUCTURAL:
+- RECORD:
+
+[END_EXCEPTION_CONTROL]
+
+## Progreso
+
+[DEFINE_PROGRESS:]
+
+- total:
+- processed:
+- failed:
+- progress:
+
+[END_PROGRESS]
+
+## Finalización
+
+[DEFINE_RESULT:]
+
+- CONDITION:
+- STATUS:
+
+[END_RESULT]
+
+[END_MAIN_FLOW]

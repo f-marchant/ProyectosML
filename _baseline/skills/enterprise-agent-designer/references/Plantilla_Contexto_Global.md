@@ -1,0 +1,74 @@
+# Plantilla de Contexto Global
+
+[DOCUMENT_ID: AGENT_ID_GLOBAL_CONTEXT]
+
+[VERSION: 1.0.0]
+
+[MAIN_FLOW]
+
+## Objetivo
+
+[Objetivo global.]
+
+## Etapas
+
+[DEFINE_STAGE_SEQUENCE:]
+
+STAGE_01
+→ STAGE_02
+→ STAGE_N
+
+[END_STAGE_SEQUENCE]
+
+## Contratos
+
+[DEFINE_INTERSTAGE_CONTRACTS:]
+
+- CONTRACT_ID:
+- PRODUCER:
+- CONSUMER:
+
+[END_INTERSTAGE_CONTRACTS]
+
+## Transiciones
+
+[DEFINE_TRANSITIONS:]
+
+- FROM:
+- TO:
+- CONDITION:
+- REVIEW_GATE:
+
+[END_TRANSITIONS]
+
+## Progreso
+
+[DEFINE_PROGRESS_CONTROL:]
+
+- execution_id:
+- current_stage:
+- progress:
+- status:
+
+[END_PROGRESS_CONTROL]
+
+## Reglas globales
+
+[DEFINE_CONSTRAINTS:]
+
+- MUST:
+- FORBID:
+
+[END_CONSTRAINTS]
+
+## Finalización
+
+[DEFINE_RESULT:]
+
+- CONDITION:
+- OUTPUT:
+- REVIEW:
+
+[END_RESULT]
+
+[END_MAIN_FLOW]

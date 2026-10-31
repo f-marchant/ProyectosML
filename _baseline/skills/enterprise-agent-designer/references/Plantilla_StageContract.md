@@ -1,0 +1,96 @@
+# Plantilla de Contrato entre Etapas
+
+[DOCUMENT_ID: STAGE_CONTRACT_TEMPLATE]
+
+[DEFINE_STAGE_CONTRACT: CONTRACT_ID]
+
+## Identificación
+
+PRODUCER:
+[Etapa productora.]
+
+CONSUMER:
+[Etapa consumidora.]
+
+ARTIFACT:
+[Artefacto.]
+
+FORMAT:
+[Formato.]
+
+VERSION:
+[Versión.]
+
+## Identificador
+
+PRIMARY_ID:
+[Campo.]
+
+UNIQUE:
+true
+
+## Campos
+
+[DEFINE_FIELDS:]
+
+- NAME:
+  TYPE:
+  REQUIRED:
+  NULLABLE:
+  DESCRIPTION:
+
+[END_FIELDS]
+
+## Integridad
+
+[DEFINE_VALIDATION:]
+
+- IDENTIFIER_UNIQUE:
+- REQUIRED_FIELDS:
+- TYPE_VALIDATION:
+- DUPLICATE_POLICY:
+
+[END_VALIDATION]
+
+## Información faltante
+
+[DEFINE_MISSING_POLICY:]
+
+- REQUIRED_FIELD_MISSING:
+- OPTIONAL_FIELD_MISSING:
+
+[END_MISSING_POLICY]
+
+## Versionado
+
+[DEFINE_VERSION_POLICY:]
+
+- CURRENT_VERSION:
+- COMPATIBILITY:
+- MIGRATION_RULE:
+
+[END_VERSION_POLICY]
+
+## Invalidación
+
+[DEFINE_INVALIDATION:]
+
+IF:
+- [Dependencia modificada.]
+
+THEN:
+- STATUS = STALE
+- REPROCESS = true
+
+[END_INVALIDATION]
+
+## Revisión
+
+[DEFINE_REVIEW_GATE:]
+
+- REQUIRED:
+- CONDITION:
+
+[END_REVIEW_GATE]
+
+[END_STAGE_CONTRACT]
