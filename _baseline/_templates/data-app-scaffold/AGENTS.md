@@ -20,7 +20,7 @@ Estás en el proyecto de aplicación de datos `{{PROJECT_NAME}}`. Sigue la metod
 2. **Desacoplamiento Estricto (Lógica vs. UI)**: Las funciones de carga, filtrado y transformación deben residir en `src/data_loader.py` o submódulos, nunca mezcladas en línea dentro del render de Streamlit.
 3. **Caché Obligatorio**: Toda carga de datos o computación pesada debe estar decorada con `@st.cache_data` o `@st.cache_resource`.
 4. **Respeto a la Inmutabilidad**: Los datos crudos en `data/raw/` son de solo lectura; la app consume réplicas en `data/sample/` o vistas preparadas.
-5. **Calidad y Evals Visuales**: Antes de dar una vista por terminada, revisa con las skills de Impeccable en `.agents/skills/impeccable/`.
+5. **Calidad, Stress-Testing y Evals Visuales**: Antes de dar una vista por terminada, valida resiliencia contra datos extremos (`pytest tests/test_data_stress.py`) y audita regresiones con `interface-review` o Impeccable.
 
 ---
 
@@ -35,7 +35,9 @@ Estás en el proyecto de aplicación de datos `{{PROJECT_NAME}}`. Sigue la metod
 
 ## 4. Comandos Rápidos
 - Ejecutar aplicación localmente: `streamlit run src/app.py`
-- Correr tests unitarios: `pytest tests/`
+- Correr tests unitarios y de carga: `pytest tests/test_data_loader.py`
+- Correr suite de stress-testing de datos: `pytest tests/test_data_stress.py`
+- Auditar regresiones visuales en git: Invocar skill `interface-review`
 - Linting y formateo de código: `ruff check src/ && ruff format src/`
 - Auditar presupuesto de tokens de contexto: `python3 scripts/check_context_budget.py`
 - Linter mecánico de diseño (opcional): `npx impeccable detect`

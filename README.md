@@ -53,8 +53,9 @@ El framework incluye un conjunto curado de skills nativas (estándar abierto `SK
 | **`diagnose`** | Transversal | Disciplina metódica de 6 fases para aislar y resolver bugs difíciles o regresiones de rendimiento (incluye script HITL). |
 | **`handoff`** | Transversal | Compacta la sesión en un artefacto estructurado para reanudar el trabajo en una nueva sesión dentro del presupuesto de tokens (2k–8k). |
 | **`retro`** | Transversal | Retrospectiva post-sesión para identificar fricciones, optimizar el uso de herramientas y alimentar las reglas en `AGENTS.md`. |
+| **`interface-review`** | Transversal | Audita un git diff o pull request en busca de regresiones visuales, de accesibilidad o layout introducidas en la interfaz. |
 | **`icm-architect`**| Transversal | Diseña y audita espacios de trabajo bajo los 6 arquetipos formales de la metodología ICM. |
-| **`project-scaffold`** | Transversal | Inicializa y estandariza nuevos proyectos (`ds`, `ml`, `agentic`) con sus contratos de contexto y tests. |
+| **`project-scaffold`** | Transversal | Inicializa y estandariza nuevos proyectos (`ds`, `ml`, `agentic`, `app`) con sus contratos de contexto y tests. |
 | **`to-spec`** | Agéntico | Sintetiza el diseño acordado en una especificación técnica formal y estructurada (historias, interfaces y evals). |
 | **`to-tickets`** | Agéntico | Descompone una especificación en un grafo de tickets ejecutables (rebanadas verticales *tracer bullets* con dependencias). |
 | **`implement-spec`**| Agéntico | Orquesta la construcción de la frontera de tickets con subagentes independientes y ventanas de contexto limpias. |
@@ -207,6 +208,8 @@ Este repositorio implementa y extiende conceptos fundamentales de la literatura 
   - *Inspiración metodológica*: Patrones de SDLC riguroso para agentes, entrevistas anti-supuestos (`grill-me`), depuración sistemática (`diagnose`), traspasos limpios (`handoff`), retrospectivas (`retro`) y ciclo agéntico spec-tickets-implementación.
 - **[impeccable](https://github.com/pbakaus/impeccable)** por Paul Bakaus (Licencia MIT).
   - *Inspiración y sistema de diseño visual*: Filosofía anti "AI slop", contratos de diseño (`_context/design.md`, `_context/product.md`) y suite de auditoría/crítica visual para el arquetipo de Data Apps y dashboards.
+- **[skills](https://github.com/jakubkrehel/skills)** por Jakub Krehel (Licencia MIT).
+  - *Inspiración en design engineering*: Principio de stress-testing de componentes ante datos extremos (`break`) y auditoría de regresiones de interfaz en git diffs (`interface-review`).
 
 ---
 

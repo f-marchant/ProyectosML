@@ -41,3 +41,11 @@ Paleta deliberada, de alto contraste y restringida:
 - Gridlines tenues en color neutro (`rgba(148, 163, 184, 0.15)`).
 - Etiquetas de ejes legibles en `#94A3B8` con tamaño 12px.
 - Tooltips limpios y formateados con unidades exactas (ej. `$`, `%`, `N`).
+
+---
+
+## 5. Resiliencia ante Datos Extremos (Patrón 'Break')
+1. **Defensa contra Textos Largos**: Si una categoría o etiqueta supera el ancho disponible, debe truncarse con elipsis (`...`) o envolverse de forma controlada sin desbordar el contenedor.
+2. **Números Tabulares y Abreviación**: Las métricas deben usar `font-variant-numeric: tabular-nums`. Cifras de gran magnitud deben formatearse en notación legible (`$1.2M`, `450K`).
+3. **Empty States Guiados**: Cuando un filtro o consulta devuelva 0 registros, jamás dejar un lienzo en blanco o roto; mostrar siempre un componente de estado vacío con sugerencia de acción.
+4. **Tolerancia a Nulos**: Los valores faltantes o `NaN` deben representarse de forma elegante como `N/D` o `—` en color apagado (`#64748B`), nunca como `None` o `NaN` en texto crudo.

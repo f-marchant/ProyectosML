@@ -27,6 +27,7 @@ Este repositorio es un **Paraguas de Proyectos (Umbrella Workspace)** estructura
 - **Para retrospectiva y mejora de directrices/guardarraíles**: Invoca la skill `retro`.
 - **Para proyectos agénticos (`--type agentic`)**: Disponen de las skills especializadas `to-spec`, `to-tickets` e `implement-spec` en `.agents/skills/`.
 - **Para aplicaciones de datos y dashboards (`--type app`)**: Disponen del sistema y skills de diseño de **Impeccable** en `.agents/skills/impeccable/` para auditoría visual y prevención de "AI slop".
+- **Para auditar regresiones visuales o de interfaz en Git**: Invoca la skill `interface-review`.
 - **Para trabajar en un proyecto específico**: Abre el directorio del proyecto en `projects/<nombre>/`.
 
 ---
