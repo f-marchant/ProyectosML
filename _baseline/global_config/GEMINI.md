@@ -53,3 +53,4 @@ Define la filosofía de ingeniería, estándares de calidad y disciplina de cont
    - `chore:` Tareas de mantenimiento, dependencias o configuración.
 2. **Higiene de Repositorio**:
    - Nunca comitear pesos binarios gigantes (`*.pkl`, `*.pt`, `*.onnx`) ni datasets crudos al repositorio Git.
+   - **Limpieza de Scratch**: Eliminar siempre al finalizar cualquier tarea o actualización las carpetas y archivos temporales de trabajo (`.scratch*`, `scratch/`).
