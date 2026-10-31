@@ -100,9 +100,9 @@ echo "────────────────────────�
 git diff --stat "${UPSTREAM_REMOTE}/main..${PUBLIC_BRANCH}" | grep -v "projects/" || true
 echo "──────────────────────────────────────────────────────────────────"
 
-# 7. Verificación de seguridad de proyectos
-if git diff --name-only "${UPSTREAM_REMOTE}/main..${PUBLIC_BRANCH}" | grep "^projects/" | grep -v "projects/\.gitkeep"; then
-    echo "❌ ERROR CRÍTICO DE SEGURIDAD: Se detectaron archivos en projects/ dentro del paquete de sincronización." >&2
+# 7. Verificación de seguridad de proyectos en el árbol a publicar
+if git ls-tree -r "${PUBLIC_BRANCH}" projects/ | grep -v "projects/\.gitkeep"; then
+    echo "❌ ERROR CRÍTICO DE SEGURIDAD: Se detectaron archivos en projects/ dentro del árbol a publicar." >&2
     echo "   Abortando inmediatamente para proteger la privacidad." >&2
     git checkout main >/dev/null 2>&1
     git branch -D "${PUBLIC_BRANCH}" >/dev/null 2>&1 || true
