@@ -36,3 +36,11 @@ Este repositorio es un **Paraguas de Proyectos (Umbrella Workspace)** estructura
 ## 3. Disciplina de Contexto
 - Nunca intentes cargar todos los proyectos a la vez. Cuando trabajes en un proyecto dentro de `projects/`, enfócate exclusivamente en sus archivos locales y su `CONTEXT.md`.
 - Mantén la disciplina de 2.000 a 8.000 tokens por interacción.
+
+---
+
+## 4. Política de Privacidad y Sincronización Remota (Guardarraíl Estricto)
+- **`origin` (Privado — `workspace_proyectos.git`)**: Tu entorno de trabajo privado. Aquí se versionan tus proyectos personales en `projects/` junto con el framework.
+- **`upstream` (Público — `ProyectosML.git`)**: El repositorio público del framework y fábrica ICM.
+- **REGLA INVIOLABLE**: La carpeta `projects/` **NUNCA** se sincroniza con el repositorio público `upstream`. Los proyectos personales son estrictamente privados.
+- **Sincronización Autorizada**: Todo cambio en la arquitectura base (`_baseline/`, scripts, plantillas, directrices o documentación) debe sincronizarse hacia `upstream` **exclusivamente a través de `./sync-upstream.sh`**, previa confirmación explícita del usuario. Pushes directos con `git push upstream main` son interceptados y bloqueados por el guardarraíl `pre-push`.

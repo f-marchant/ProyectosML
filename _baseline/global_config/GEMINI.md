@@ -54,3 +54,6 @@ Define la filosofía de ingeniería, estándares de calidad y disciplina de cont
 2. **Higiene de Repositorio**:
    - Nunca comitear pesos binarios gigantes (`*.pkl`, `*.pt`, `*.onnx`) ni datasets crudos al repositorio Git.
    - **Limpieza de Scratch**: Eliminar siempre al finalizar cualquier tarea o actualización las carpetas y archivos temporales de trabajo (`.scratch*`, `scratch/`).
+3. **Privacidad de Proyectos y Sincronización Remota**:
+   - La carpeta `projects/` contiene proyectos personales y **NUNCA** debe sincronizarse con el repositorio público `upstream` (`ProyectosML`).
+   - Toda replicación de cambios en la arquitectura base hacia `upstream` debe realizarse exclusivamente mediante `./sync-upstream.sh` previa confirmación explícita del usuario.
