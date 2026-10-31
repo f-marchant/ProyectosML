@@ -1,8 +1,0 @@
-# Cursor Rules — test-agent-sandbox
-# Generated automatically by sync-adapters.sh from AGENTS.md
-
-1. Always read AGENTS.md and CONTEXT.md before proposing or applying code changes.
-2. Adhere to data inmutability conventions in data/raw/.
-3. In Data Science projects, consult research/01_problem_formulation.md for theoretical formulas.
-4. Prevent data leakage: all scalers and encoders must fit ONLY on the training split.
-5. Fix random seeds to seed=42 across all libraries.

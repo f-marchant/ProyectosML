@@ -1,6 +1,0 @@
-# Windsurf Rules — test-agent-sandbox
-# Generated automatically by sync-adapters.sh from AGENTS.md
-
-1. Read AGENTS.md for engineering rules and CONTEXT.md for task contracts.
-2. Maintain context discipline: read _context/ and research/ instead of scanning massive raw data.
-3. Respect data immutability in data/raw/.
